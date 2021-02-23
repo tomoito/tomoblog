@@ -1,0 +1,19 @@
+.module {
+  display: flex;
+  padding-top: 50px;
+}
+
+.aside {
+  /* min-width: 200px; */
+  min-height: 50px;
+  min-width: 1000vh;
+  position: fixed;
+  display: block;
+  top: 0;
+  /* left: 0; */
+  background-color: #fff;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+}
+.main {
+  width: 100%;
+}

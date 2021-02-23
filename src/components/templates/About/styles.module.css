@@ -1,0 +1,32 @@
+.module {
+  max-width: 940px;
+  padding-top: 40px;
+  margin: 0 auto;
+}
+.module section {
+  margin-bottom: 60px;
+  padding: 0 40px;
+}
+.module article {
+  margin-bottom: 24px;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  text-align: center;
+}
+.module h2,
+.module h3 {
+  margin-bottom: 16px;
+  font-size: 3.6rem;
+  font-weight: bold;
+  font-family: "Ubuntu", sans-serif;
+  text-align: center;
+}
+.module h3 {
+  font-size: 2.4rem;
+}
+.module .image {
+  margin: 16px 0;
+}
+.module .image img {
+  width: 100%;
+}
