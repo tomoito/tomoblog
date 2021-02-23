@@ -27,7 +27,7 @@ img {
   display: block;
 }
 
-nav {
+/* nav {
   border-bottom: 1px solid #ccc;
 }
 nav ul {
@@ -62,4 +62,7 @@ nav ul li.current {
 nav ul li.current a {
   border-bottom: 5px solid #00b0f0;
   color: #00b0f0;
-}
+} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

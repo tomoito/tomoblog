@@ -1,0 +1,26 @@
+
+    // <div className={styles.nav}>
+    //   <nav>
+    //     <ul>
+    //       <li className={styles.navlist}>
+    //         <Link href="/">
+    //           <a>TOP</a>
+    //         </Link>
+    //       </li>
+    //         <Link href="/about">
+    //           <a>About</a>
+    //         </Link>{' '}
+    //       </li>
+    //       <li className={styles.navlist}>
+    //         <Link href="/contact">
+    //           <a>contact</a>
+    //         </Link>{' '}
+    //       </li>
+    //       <li className={styles.navlist}>
+    //         <Link href="/blog">
+    //           <a>blog</a>
+    //         </Link>{' '}
+    //       </li>
+    //     </ul>
+    //   </nav>
+    // </div>
