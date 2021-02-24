@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Work = () => {
+export const Art = () => {
   return (
     <div>
       <section className="text-gray-600 body-font">
@@ -113,5 +113,3 @@ const Work = () => {
     </div>
   );
 };
-
-export default Work;
