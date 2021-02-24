@@ -61,12 +61,12 @@ const Navigation = () => {
                 Blog
               </a>
             </Link>
-            <Link href="/contact">
+            <Link href="/work">
               <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white">
                 Work
               </a>
             </Link>
-            <Link href="/">
+            <Link href="/contact">
               <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-green-600 hover:text-white">
                 Contact us
               </a>

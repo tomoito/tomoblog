@@ -20,9 +20,11 @@ const ArticleItem = ({ article }) => {
           </a>
         </div>
         <div className="mt-2">
-          <a href="#" className="text-2xl text-gray-700 font-bold hover:underline">
-            {article.title}
-          </a>
+          <Link href={`/posts/${article.id}`}>
+            <a href="#" className="text-2xl text-gray-700 font-bold hover:underline">
+              {article.title}
+            </a>
+          </Link>
           <p className="mt-2 text-gray-600">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita dicta totam
             aspernatur doloremque. Excepturi iste iusto eos enim reprehenderit nisi, accusamus

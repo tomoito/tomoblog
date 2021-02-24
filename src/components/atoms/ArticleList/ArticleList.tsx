@@ -7,10 +7,6 @@ type Props = { articles: ArticleHeader[] };
 const ArticleList = (Props: Props) => {
   return (
     <div>
-      {/* {Props.articles.map((article) => (
-        <ArticleItem key={article.id} article={article} />
-      ))} */}
-
       <div className="px-6 py-8">
         <div className="flex justify-between container mx-auto">
           <div className="w-full lg:w-8/12">
@@ -27,7 +23,6 @@ const ArticleList = (Props: Props) => {
             {Props.articles.map((article) => (
               <div>
                 <ArticleItem article={article} />
-                {/* <ArticleItem key={article.id} article={article} /> */}
               </div>
             ))}
             <div className="mt-8">
