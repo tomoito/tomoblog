@@ -1,11 +1,11 @@
 .module {
   display: flex;
-  padding-top: 10vh;
+  margin-top: 15vh;
 }
 
 .aside {
   /* min-width: 200px; */
-  min-height: 10vh;
+  height: 10vh;
   width: 100%;
   /* min-width: 1000vh; */
   position: fixed;
