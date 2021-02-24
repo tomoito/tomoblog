@@ -6,13 +6,7 @@ export const About = () => (
     <div>
       <section className="bg-white mt-20">
         <div className="max-w-2xl px-6 text-center mx-auto">
-          <h2 className="text-3xl font-semibold text-gray-800">
-            Hi,{' '}
-            <span className="bg-indigo-600 text-white rounded px-1">
-              こんにちは、tomoと申します
-            </span>{' '}
-            . Nice to meet you.
-          </h2>
+          <h2 className="text-3xl font-semibold text-gray-800">Hi, こんにちは、tomoと申します。</h2>
           <p className="text-gray-600 mt-4">
             Webエンジニアをしております。皆様のお力になれたら幸いです。よろしくお願いします。
           </p>
