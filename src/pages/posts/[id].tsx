@@ -1,48 +1,53 @@
-import Layout from '@/components/organisms/Layout/Layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
-import Head from 'next/head'
-import Date from '../../components/date'
-import utilStyles from '../../styles/utils.module.css'
-import { GetStaticProps, GetStaticPaths } from 'next'
+import Layout from '@/components/organisms/Layout/Layout';
+import { getAllPostIds, getPostData } from '../../lib/posts';
+import Head from 'next/head';
+import Date from '../../components/date';
+import utilStyles from '../../styles/utils.module.css';
+import { GetStaticProps, GetStaticPaths } from 'next';
+
+import 'prismjs/themes/prism.css';
+import 'prismjs/themes/prism-twilight.css';
 
 export default function Post({
-  postData
+  postData,
 }: {
   postData: {
-    title: string
-    date: string
-    contentHtml: string
-  }
+    title: string;
+    date: string;
+    contentHtml: string;
+  };
 }) {
   return (
     <Layout>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
-      <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </article>
+      <div className="max-w-screen-lg px-4 py-12 mx-auto">
+        <Head>
+          <title>{postData.title}</title>
+        </Head>
+        <article>
+          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+          <div className={utilStyles.lightText}>
+            <Date dateString={postData.date} />
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </article>
+      </div>
     </Layout>
-  )
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds()
+  const paths = getAllPostIds();
   return {
     paths,
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string)
+  const postData = await getPostData(params.id as string);
   return {
     props: {
-      postData
-    }
-  }
-}
+      postData,
+    },
+  };
+};
