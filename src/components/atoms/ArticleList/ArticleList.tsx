@@ -25,6 +25,8 @@ const ArticleList = (Props: Props) => {
                 <ArticleItem article={article} />
               </div>
             ))}
+
+            {/* 
             <div className="mt-8">
               <div className="flex">
                 <a
@@ -62,8 +64,9 @@ const ArticleList = (Props: Props) => {
                   Next
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
+
           <div className="-mx-8 w-4/12 hidden lg:block">
             <div className="px-8">
               <h1 className="mb-4 text-xl font-bold text-gray-700">Authors</h1>

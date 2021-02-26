@@ -8,6 +8,7 @@ import html from 'remark-html';
 import highlight from 'remark-highlight.js';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
+const EXTENSION = '.md';
 
 export function getSortedPostsData() {
   // Get file names under /posts
@@ -38,6 +39,25 @@ export function getSortedPostsData() {
     }
   });
 }
+/**
+ * Markdown のファイル一覧を取得する
+ */
+export const listContentFiles = () => {
+  const filenames = fs.readdirSync(postsDirectory);
+  return filenames.map((fileName) => fileName.replace(/\.md$/, ''));
+};
+
+/**
+ * Markdown のファイルの中身を全件パースして取得する
+ */
+export const readContentFiles = async ({ fs }) => {
+  const promisses = listContentFiles().map((filename) => getPostData(filename));
+  console.log(promisses);
+
+  const contents = await Promise.all(promisses);
+
+  return contents;
+};
 
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -71,4 +91,10 @@ export async function getPostData(id: string) {
     contentHtml,
     ...(matterResult.data as { date: string; title: string }),
   };
+}
+
+export function getPostCount() {
+  const filenames = fs.readdirSync(postsDirectory);
+  console.log(filenames.length);
+  return filenames.length;
 }

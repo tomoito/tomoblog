@@ -1,39 +1,41 @@
-import Layout from '@/components/organisms/Layout/Layout';
-import React from 'react';
-import { getSortedPostsData, getPostCount, listContentFiles } from '../lib/posts';
+import fs from 'fs';
+
 import Link from 'next/link';
-import Date from '../components/date';
-import { GetStaticProps } from 'next';
-import ArticleList from '@/components/atoms/ArticleList/ArticleList';
-import { Pagination } from '@/components/organisms/Pagenation/Pagenation';
+
+import Layout from '@/components/organisms/Layout/Layout';
+import { getAllPostIds, getPostData, listContentFiles, readContentFiles } from '../../lib/posts';
 import Pager from '@/components/organisms/Paper/Paper';
+import ArticleList from '@/components/atoms/ArticleList/ArticleList';
 
 const COUNT_PER_PAGE = 5;
 
-export default function blog({
-  allPostsData,
-  allPostCount,
-}: {
-  allPostsData: {
-    date: string;
-    title: string;
-    id: string;
-  }[];
-  allPostCount: number;
-}) {
-  console.log(allPostCount);
+export default function Archive(props) {
+  const { posts, page, total, perPage } = props;
   return (
-    <Layout>
-      <ArticleList articles={allPostsData} />
-      {/* <Pagination totalCount={allPostCount} /> */}
+    <Layout title="アーカイブ">
+      <ArticleList articles={posts} />
+      {/* 
 
-      {/* <Pager
+      {posts.map((post) => (
+        <div key={post.id} className="post-teaser">
+          <h2>
+            <Link href="/posts/[id]" as={`/posts/${post.id}`}>
+              <a>{post.title}</a>
+            </Link>
+          </h2>
+          <div>
+            <span>{post.published}</span>
+          </div>
+        </div>
+      ))} */}
+
+      <Pager
         page={page}
         total={total}
         perPage={perPage}
         href="/archive/[page]"
         asCallback={(page) => `/archive/${page}`}
-      /> */}
+      />
 
       <style jsx>{`
         .post-teaser {
@@ -46,6 +48,25 @@ export default function blog({
       `}</style>
     </Layout>
   );
+}
+
+/**
+ * ページコンポーネントで使用する値を用意する
+ */
+export async function getStaticProps({ params }) {
+  const page = parseInt(params.page, 5);
+  const end = COUNT_PER_PAGE * page;
+  const start = end - COUNT_PER_PAGE;
+  const posts = await readContentFiles({ fs });
+
+  return {
+    props: {
+      posts: posts.slice(start, end),
+      page,
+      total: posts.length,
+      perPage: COUNT_PER_PAGE,
+    },
+  };
 }
 
 /**
@@ -66,25 +87,6 @@ export async function getStaticPaths() {
 
   return { paths: paths, fallback: false };
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData();
-  const allPostCount = getPostCount();
-
-  const posts = await listContentFiles();
-  const pages = range(Math.ceil(posts.length / COUNT_PER_PAGE));
-  const paths = pages.map((page) => ({
-    params: { page: `${page}` },
-  }));
-
-  // const allPostCount = 10;
-  return {
-    props: {
-      allPostsData,
-      allPostCount,
-    },
-  };
-};
 
 /**
  * ユーティリティ: 1 から指定された整数までを格納した Array を返す
