@@ -75,12 +75,12 @@ const ArticleList = (Props: Props) => {
                 <ul>
                   {Props.tags.map((tagNames) => (
                     <li className="mt-2">
-                      <Link href={`/tags/${tagNames.name}`}>
+                      <Link href={`/tags/${tagNames[0]}`}>
                         <a
                           href="#"
                           className="px-2 py-1 bg-gray-600 text-sm text-green-100 rounded hover:bg-gray-500"
                         >
-                          {tagNames.name} : {tagNames.itemCount}
+                          {tagNames[0]} : {tagNames[1]}
                         </a>
                       </Link>
                     </li>
