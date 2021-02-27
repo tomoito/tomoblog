@@ -1,9 +1,9 @@
-import { ArticleHeader } from '@/models/models';
+import { ArticleHeader, Tag } from '@/models/models';
 import Link from 'next/link';
 import React from 'react';
 import ArticleItem from '../ArticleItem/ArticleItem';
 
-type Props = { articles: ArticleHeader[]; tags?: string[] };
+type Props = { articles: ArticleHeader[]; tags?: Tag[] };
 
 const ArticleList = (Props: Props) => {
   return (
@@ -75,12 +75,12 @@ const ArticleList = (Props: Props) => {
                 <ul>
                   {Props.tags.map((tagNames) => (
                     <li className="mt-2">
-                      <Link href={`/tags/${tagNames[0]}`}>
+                      <Link href={`/tags/${tagNames.name}`}>
                         <a
                           href="#"
                           className="px-2 py-1 bg-gray-600 text-sm text-green-100 rounded hover:bg-gray-500"
                         >
-                          {tagNames[0]} : {tagNames[1]}
+                          {tagNames.name} : {tagNames.itemCount}
                         </a>
                       </Link>
                     </li>

@@ -16,11 +16,8 @@ type Props = {
   tags: Tag[];
 };
 
-export default function Tags(props) {
+export default function Tags(props: Props) {
   const { tagName, articles, tags } = props;
-  console.log(tagName);
-  console.log(articles);
-  console.log(tags);
 
   return (
     <Layout>
