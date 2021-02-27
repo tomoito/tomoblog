@@ -1,6 +1,6 @@
 ---
 title: コードをきれいに見えるようにしました
-tags: 'react'
+tags: 'node'
 date: '2020-04-01'
 ---
 

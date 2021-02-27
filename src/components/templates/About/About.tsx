@@ -6,9 +6,9 @@ export const About = () => (
     <div>
       <section className="bg-white mt-20">
         <div className="max-w-2xl px-6 text-center mx-auto">
-          <h2 className="text-3xl font-semibold text-gray-800">Hi, こんにちは、tomoと申します。</h2>
+          <h2 className="text-3xl font-semibold text-gray-800">こんにちは、tomoと申します。</h2>
           <p className="text-gray-600 mt-4">
-            Webエンジニアをしております。皆様のお力になれたら幸いです。よろしくお願いします。
+            Webエンジニアをしております。皆様のお力になれたら幸いです。何かお困りのことがありましたらお気軽にご連絡ください。
           </p>
 
           <div className="flex items-end justify-center mt-16">
@@ -106,14 +106,9 @@ export const About = () => (
 
       <section className="bg-gray-800 pattern py-20">
         <div className="max-w-5xl px-6 mx-auto text-center">
-          <h2 className="text-2xl font-semibold text-white">About Me</h2>
+          <h2 className="text-2xl font-semibold text-white">私のモットー</h2>
 
-          <p className="text-gray-400 mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper nulla nunc quis
-            molestie volutpat elementum at. Ultrices ipsum, enim cursus lorem ac. Orci maecenas
-            praesent arcu eget orci est orci nullam. Leo purus est pellentesque massa at tortor,
-            est. Aliquet pulvinar a mattis sagittis. Suspendisse porta id elementum, massa.
-          </p>
+          <p className="text-gray-400 mt-4">相手の二手三手先を読んで行動する。</p>
         </div>
       </section>
 

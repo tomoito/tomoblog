@@ -6,9 +6,14 @@ import prism from 'remark-prism';
 import gfm from 'remark-gfm';
 import html from 'remark-html';
 import highlight from 'remark-highlight.js';
+import { Tag } from '@/models/models';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 const EXTENSION = '.md';
+
+// export function getTagPostData(){
+
+// }
 
 export function getSortedPostsData() {
   // Get file names under /posts
@@ -27,7 +32,7 @@ export function getSortedPostsData() {
     // Combine the data with the id
     return {
       id,
-      ...(matterResult.data as { date: string; title: string }),
+      ...(matterResult.data as { date: string; title: string; tags: string }),
     };
   });
   // Sort posts by date
@@ -61,6 +66,37 @@ export const readContentFiles = async ({ fs }) => {
 
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory);
+  return fileNames.map((fileName) => {
+    return {
+      params: {
+        id: fileName.replace(/\.md$/, ''),
+      },
+    };
+  });
+}
+
+export async function getAllArticleTags(): Promise<Tag[]> {
+  const article = await getSortedPostsData();
+
+  const tagsList = article.map((article) => {
+    return article.tags;
+  });
+
+  const tagsCount = {} as Record<string, number>;
+
+  tagsList.forEach((tags) => {
+    tagsCount[tags] = tagsCount[tags] !== undefined ? tagsCount[tags] + 1 : 1;
+  });
+  console.log(tagsCount);
+
+  return Object.entries(tagsCount).map(([key, count]) => ({
+    name: key,
+    itemCount: count,
+  }));
+}
+
+export function getFilterPostIds() {
+  const fileNames = fs.readdirSync(postsDirectory).filter((fileName) => fileName.includes('React'));
   return fileNames.map((fileName) => {
     return {
       params: {

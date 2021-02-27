@@ -1,10 +1,26 @@
 ---
-title: コードをきれいに見えるようにしました
+title: 新しいreactコードをきれいに見えるようにしました
 tags: 'react'
 date: '2020-04-01'
 ---
 
-サンプルです。
+# 見出し 1
+
+インストールコマンドは `gem install hoge` です
+| header1 | header2 | header3 |
+| :--------- | ----------: | :----------: |
+| align left | align right | align center |
+| a | b | c |
+
+hoge
+
+---
+
+hoge
+
+---
+
+## hoge
 
 `[slug].js`:
 

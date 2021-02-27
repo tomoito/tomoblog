@@ -1,5 +1,6 @@
 ---
 title: 'Reactフラグえんとについて'
+tags: 'python'
 date: '2020-01-01'
 ---
 

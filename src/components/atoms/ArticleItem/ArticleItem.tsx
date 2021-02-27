@@ -12,12 +12,14 @@ const ArticleItem = ({ article }) => {
       <div className="max-w-4xl px-10 py-6 bg-white rounded-lg shadow-md">
         <div className="flex justify-between items-center">
           <span className="font-light text-gray-600">Jun 1, 2020</span>
-          <a
-            href="#"
-            className="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500"
-          >
-            {article.id}
-          </a>
+          <Link href={`/tags/${article.tags}`}>
+            <a
+              href="#"
+              className="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500"
+            >
+              {article.tags}
+            </a>
+          </Link>
         </div>
         <div className="mt-2">
           <Link href={`/posts/${article.id}`}>

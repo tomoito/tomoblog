@@ -3,17 +3,23 @@ import fs from 'fs';
 import Link from 'next/link';
 
 import Layout from '@/components/organisms/Layout/Layout';
-import { getAllPostIds, getPostData, listContentFiles, readContentFiles } from '../../lib/posts';
+import {
+  getAllArticleTags,
+  getAllPostIds,
+  getPostData,
+  listContentFiles,
+  readContentFiles,
+} from '../../lib/posts';
 import Pager from '@/components/organisms/Paper/Paper';
 import ArticleList from '@/components/atoms/ArticleList/ArticleList';
 
 const COUNT_PER_PAGE = 5;
 
 export default function Archive(props) {
-  const { posts, page, total, perPage } = props;
+  const { posts, page, total, perPage, tags } = props;
   return (
     <Layout title="アーカイブ">
-      <ArticleList articles={posts} />
+      <ArticleList articles={posts} tags={tags} />
       {/* 
 
       {posts.map((post) => (
@@ -59,12 +65,15 @@ export async function getStaticProps({ params }) {
   const start = end - COUNT_PER_PAGE;
   const posts = await readContentFiles({ fs });
 
+  const tags = await getAllArticleTags();
+
   return {
     props: {
       posts: posts.slice(start, end),
       page,
       total: posts.length,
       perPage: COUNT_PER_PAGE,
+      tags: tags,
     },
   };
 }

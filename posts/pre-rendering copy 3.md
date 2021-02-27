@@ -1,5 +1,6 @@
 ---
 title: 'Two Forms of Pre-rendering'
+tags: 'python'
 date: '2020-01-01'
 ---
 
