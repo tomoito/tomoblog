@@ -19,17 +19,22 @@ export default function Post({
 }) {
   return (
     <Layout>
-      <div className="max-w-screen-lg px-4 py-12 mx-auto">
-        <Head>
-          <title>{postData.title}</title>
-        </Head>
-        <article>
-          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-          <div className={utilStyles.lightText}>
-            <Date dateString={postData.date} />
+      <div className="px-6 py-8">
+        <div className="flex justify-between container mx-auto">
+          <div className="w-full lg:w-8/12">
+            <Head>
+              <title>{postData.title}</title>
+            </Head>
+            <article>
+              <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+              <div className={utilStyles.lightText}>
+                <Date dateString={postData.date} />
+              </div>
+
+              <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+            </article>
           </div>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-        </article>
+        </div>
       </div>
     </Layout>
   );
