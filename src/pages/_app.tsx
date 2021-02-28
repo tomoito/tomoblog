@@ -1,5 +1,5 @@
 import '../styles/global.css';
-// import { AppProps } from 'next/app';
+import { AppProps } from 'next/app';
 // import 'highlight.js/styles.default.css';
 // import 'highl?ight.js/styles.default.css';
 // import 'highlight.js/styles/default.css';
