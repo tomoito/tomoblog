@@ -21,9 +21,7 @@ export default function Tags(props: Props) {
 
   return (
     <Layout>
-      <div className="max-w-screen-lg px-4 py-12 mx-auto">
-        <ArticleList articles={articles} tags={tags} />
-      </div>
+      <ArticleList articles={articles} tags={tags} />
     </Layout>
   );
 }
